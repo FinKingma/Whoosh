@@ -22,3 +22,13 @@ You are a GTA style car cruising through the ghetto, until you find a squeaking 
 - Weapons. Like duuhh
 - Zombie mode
 - Multi player option (log in with your person)
+- cheats
+- garage to drive a total loss car into, but you might end up with a useless bicycile
+
+
+Coding notes:
+- tiles of 200px / 200px
+- each tile is either road or building
+- collision when drive into building tile
+- not too seriously tweaked mechanics
+- kill it with fire

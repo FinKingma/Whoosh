@@ -1,0 +1,43 @@
+{"tileData": 
+  { "name": "awesome map",
+    "dimensions": "4x4",
+    "tileSize": "200px",
+    "tiles": 
+  [
+    [
+      { "tileName": "building" },
+      { "tileName": "building" },
+      { "tileName": "building" },
+      { "tileName": "building" },
+      { "tileName": "building" }
+    ],
+    [
+      { "tileName": "building" },
+      { "tileName": "road" },
+      { "tileName": "road" },
+      { "tileName": "road" },
+      { "tileName": "building" }
+    ],
+    [
+      { "tileName": "building" },
+      { "tileName": "road" },
+      { "tileName": "road" },
+      { "tileName": "road" },
+      { "tileName": "building" }
+    ],
+    [
+      { "tileName": "building" },
+      { "tileName": "road" },
+      { "tileName": "road" },
+      { "tileName": "road" },
+      { "tileName": "building" }
+    ],
+    [
+      { "tileName": "building" },
+      { "tileName": "building" },
+      { "tileName": "building" },
+      { "tileName": "building" },
+      { "tileName": "building" }
+    ]
+  ]}
+}

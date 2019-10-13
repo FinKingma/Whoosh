@@ -1,5 +1,6 @@
 <template>
     <div class='box'>
+        <tileSet :tileSet="engine.tileSet" :car="engine.car"></tileSet>
         <car :car="engine.car"></car>
     </div>
 </template>
@@ -8,6 +9,7 @@
 import Vue from 'vue';
 import { Engine } from '../modules/engine'
 import Car from './Car.vue'
+import TileSet from './TileSet.vue'
 
 export default Vue.extend({
     data() {
@@ -16,7 +18,8 @@ export default Vue.extend({
         }
     },
     components: {
-        'car': Car
+        'car': Car,
+        'tileSet': TileSet
     },
     mounted () {
         this.engine.play()

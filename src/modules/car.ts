@@ -5,6 +5,8 @@ export class Car {
   leftPos:number = 0
   topPos:number = 0
   speed:number = 0
+  width:number = 40
+  length:number = 80
   driftSpeed:number = 0
   carDirection:number = 0
   moveDirection:number = 0

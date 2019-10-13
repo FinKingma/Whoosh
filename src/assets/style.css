@@ -6,8 +6,36 @@ html, body {
 }
 
 .car {
-  width: 20px;
+  width: 40px;
   height: 80px;
+  top: 50%;
+  left: 50%;
   background-color: red;
+  position: absolute;
+}
+
+.tile {
+  width: 200px;
+  height: 200px;
+  background-color: black;
+}
+
+table {
+  border-spacing: 0px;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 0px;
+}
+
+.building {
+  background-color: darkgray;
+}
+.road {
+  background-color: lightgray;
+}
+
+.tileSet{
   position: absolute;
 }

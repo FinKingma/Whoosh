@@ -1,5 +1,10 @@
 <template>
-    <div class='car' v-bind:style="{ 'top': (car.topPos) + 'px', 'left': (car.leftPos) + 'px', 'transform': 'rotate('+(car.carDirection)+'deg)'}" />
+    <div class='car' v-bind:style="{ 
+        'transform': 'rotate('+(car.carDirection)+'deg)', 
+        'width': car.width, 
+        'height': car.length,
+        'margin-top': -(car.length/2) + 'px', 
+        'margin-left': -(car.width/2) + 'px'}" />
 </template>
 
 <script lang='ts'>
