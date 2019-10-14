@@ -26,6 +26,6 @@ deploy:
   stage: deploy
   image: finkingma/etg-highscore-ci:0.7.0
   script:
-    - BUCKETNAME=whoosh-the-game ./uploadToS3.sh
+    - BUCKETNAME=gta-rally ./uploadToS3.sh
   dependencies:
     - build
