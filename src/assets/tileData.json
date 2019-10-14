@@ -1,7 +1,7 @@
 {"tileData": 
   { "name": "awesome map",
     "dimensions": "4x4",
-    "tileSize": "200px",
+    "tileSize": "200",
     "tiles": 
   [
     [

@@ -7,7 +7,4 @@ export class TileSet {
   constructor () {
     this.tileData = tileData.tileData
   }
-  generateTileSet() {
-
-  }
 }

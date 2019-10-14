@@ -5,8 +5,8 @@ export class Car {
   leftPos:number = 0
   topPos:number = 0
   speed:number = 0
-  width:number = 40
-  length:number = 80
+  width:number = 0
+  length:number = 0
   driftSpeed:number = 0
   carDirection:number = 0
   moveDirection:number = 0
@@ -16,17 +16,68 @@ export class Car {
   right:boolean = false
   break:boolean = false
   data:any
+  cornerData = {
+    distance: 0,
+    degree: 0,
+    frontLeft: {
+      x: 0,
+      y: 0
+    },
+    frontRight:{
+      x: 0,
+      y: 0
+    },
+    rearLeft: {
+      x: 0,
+      y: 0
+    },
+    rearRight: {
+      x: 0,
+      y: 0
+    }
+  }
 
   constructor () {
     this.data = data
   }
-  placeCar(leftPos:number, topPos:number) {
+  placeCar(width: number, length:number, leftPos:number, topPos:number) {
+    this.width = width
+    this.length = length
     this.leftPos = leftPos
     this.topPos = topPos
+
+    //define once
+    this.cornerData.distance = Math.sqrt(Math.pow(width / 2, 2) + Math.pow(length / 2, 2))
+    this.cornerData.degree = this.toDegrees(Math.atan(width / length))
+  }
+  bounceBack(yDirection:number, xDirection:number) {
+    console.log('CRASH')
+    this.speed = this.speed * -1
+    this.updateDriftSpeed()
+    this.leftPos += xDirection * 10
+    this.topPos += yDirection * 10
   }
   animate() {
     this.adjustSpeedAndDirection()
     this.adjustPosition()
+    this.redetermineCorners()
+  }
+  redetermineCorners() {
+    let topLeftDegrees = this.carDirection - this.cornerData.degree
+    this.cornerData.frontLeft.x = Math.sin(this.toRadians(topLeftDegrees)) * this.cornerData.distance
+    this.cornerData.frontLeft.y = Math.cos(this.toRadians(topLeftDegrees)) * this.cornerData.distance
+
+    let topRightDegrees = this.carDirection + this.cornerData.degree
+    this.cornerData.frontRight.x = Math.sin(this.toRadians(topRightDegrees)) * this.cornerData.distance
+    this.cornerData.frontRight.y = Math.cos(this.toRadians(topRightDegrees)) * this.cornerData.distance
+
+    let rearLeftDegrees = this.carDirection + 180 + this.cornerData.degree
+    this.cornerData.rearLeft.x = Math.sin(this.toRadians(rearLeftDegrees)) * this.cornerData.distance
+    this.cornerData.rearLeft.y = Math.cos(this.toRadians(rearLeftDegrees)) * this.cornerData.distance
+
+    let rearRightDegrees = this.carDirection + 180 - this.cornerData.degree
+    this.cornerData.rearRight.x = Math.sin(this.toRadians(rearRightDegrees)) * this.cornerData.distance
+    this.cornerData.rearRight.y = Math.cos(this.toRadians(rearRightDegrees)) * this.cornerData.distance
   }
   adjustSpeedAndDirection() {
     if (this.forward) this.moveForward();
@@ -96,6 +147,9 @@ export class Car {
     return (this.data.turnSpeed * (Math.abs(this.speed) / 10))
   }
   toRadians (angle:number) {
-    return angle * (Math.PI / 180);
+    return angle * (Math.PI / 180)
+  }
+  toDegrees (angle:number) {
+    return angle / (Math.PI / 180)
   }
 }
